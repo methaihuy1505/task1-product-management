@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Quản lý Sản Phẩm</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="container mt-5">
+    
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2>Danh sách Sản Phẩm</h2>
+        <a th:href="@{/products/create}" class="btn btn-success"> + Thêm Sản Phẩm</a>
+    </div>
+
+    <table class="table table-bordered table-striped table-hover">
+        <thead class="table-dark">
+            <tr>
+                <th>ID</th>
+                <th>Tên Sản Phẩm (proName)</th>
+                <th>Thứ Tự (order)</th>
+                <th>Trạng Thái (active)</th>
+                <th>Hành Động</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="product : ${listProducts}">
+                <td th:text="${product.productId}">1</td>
+                <td th:text="${product.proName}">Tên SP</td>
+                <td th:text="${product.order}">0</td>
+                
+                <td th:text="${product.active ? 'Hoạt động' : 'Đã ẩn'}">Hoạt động</td>
+                
+                <td>
+                    <a th:href="@{/products/edit/{id}(id=${product.productId})}" class="btn btn-warning btn-sm">Sửa</a>
+                    
+                    <a th:href="@{/products/delete/{id}(id=${product.productId})}" 
+                       class="btn btn-danger btn-sm"
+                       onclick="return confirm('Bạn có chắc chắn muốn xóa sản phẩm này?');">Xóa</a>
+                </td>
+            </tr>
+            <tr th:if="${#lists.isEmpty(listProducts)}">
+                <td colspan="5" class="text-center">Chưa có sản phẩm nào trong Database!</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
