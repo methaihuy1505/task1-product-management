@@ -63,3 +63,13 @@ spring.jpa.hibernate.ddl-auto=update
 
 # Đảm bảo mapping chính xác tên cột (productId, proName...)
 spring.jpa.hibernate.naming.physical-strategy=org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+```
+### 3. Khởi chạy dự án
+1. **Import dự án**: Mở IDE (Eclipse, IntelliJ hoặc VS Code), chọn *Import* dự án dưới dạng **Existing Maven Project**.
+2. **Chạy ứng dụng**: Tìm đến file `ProductManagementApplication.java`, chuột phải và chọn **Run As -> Java Application**.
+3. **Kiểm tra kết quả**: Mở trình duyệt web và truy cập theo đường dẫn: [http://localhost:8080/products](http://localhost:8080/products)
+
+---
+
+## Tác giả
+[methaihuy1505](https://github.com/methaihuy1505)
